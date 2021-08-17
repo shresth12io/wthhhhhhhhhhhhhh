@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    background-color: #2c395c;
+}
+.sidebar{
+    width:460px;
+    border-right:2px solid white;
+    background-color: #232c43;
+    height:100vh;
+    overflow-x: hidden;
+}
+.navigation{
+    position: relative;
+    height: 610px;
+    width:80px;
+    background-color: #263250;
+    border-right: 10px solid #4187f6;
+    border-bottom: 10px solid #4187f6;
+    border-bottom-right-radius: 50px;
+    border-left: 10px solid #263250;
+    overflow-x:hidden;
+    padding-left:-50px;
+    z-index:100;
+}
+.sidebar .navigation:hover{
+    width: 300px;
+    transition: width 0.5s;
+    
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    padding-left: 5px;
+    padding-top:40px;
+}
+.navigation ul li{
+    position:relative;
+    list-style: none;
+    width:100%;
+    background-color:#263250;
+    z-index:21;
+}
+.navigation ul li.active a::before{
+    content: '';
+    position: absolute;
+    top:-30px;
+    right:0;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    box-shadow: 15px 15px 0 #4187f6;
+}
+.navigation ul li.active{
+    background-color:#4187f6;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index:20;
+}
+.navigation ul li a{
+    position: relative;
+    display:block;
+    width:100%;
+    display:flex;
+    text-decoration: none;
+    color:white
+}
+.navigation ul li a .icon{
+    position:relative;
+    display:block;
+    min-width:60px;
+    height:60px;
+    line-height:70px;
+    text-align:center;
+}
+.navigation ul li a .icon ion-icon{
+    position:relative;
+    font-size:1.5em;
+    z-index: 1;
+}
+.navigation ul li a .title{
+    position:relative;
+    display:block;
+    height:60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+.list:hover{
+    background-color:#4187f6;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.list:hover::before{
+    content: '';
+    position: absolute;
+    top:-30px;
+    right:0;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    box-shadow: 15px 15px 0 #4187f6;
+}
+.list:hover::after{
+    content: '';
+    position: absolute;
+    bottom:-30px;
+    right:0;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    box-shadow: 15px -15px 0 #4187f6;
+}
+.look{
+    border-top:2px solid white;
+    margin-top:90vh;
+    margin-right:90vw;
+}
+.search-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    z-index:5;
+    display:flex;
+}
+.search-wrapper .input-holder {    
+    height: 70px;
+    width:70px;
+    overflow: hidden;
+    background: rgba(71, 68, 68, 0);
+    border-radius:6px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    border:white solid 2px;
+    margin-bottom: 71vh;
+    margin-right:68vw;
+    z-index:5;
+}
+.search-wrapper.active .input-holder {
+    width:270px;
+    border-radius: 50px;
+    background: rgb(12, 8, 24);
+    transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    z-index:5;
+}
+.search-wrapper .input-holder .search-input {
+    width:100%;
+    height: 50px;
+    padding:0px 70px 0 20px;
+    opacity: 0;
+    position: absolute;
+    top:0px;
+    left:0px;
+    background: transparent;
+    box-sizing: border-box;
+    border:none;
+    outline:none;
+    font-family:"Open Sans", Arial, Verdana;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color:#FFF;
+    transform: translate(0, 60px);
+    transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.3s;
+    z-index:5;
+}
+.search-wrapper.active .input-holder .search-input {
+    opacity: 1;
+    transform: translate(0, 10px);
+    z-index:5;
+}
+.search-wrapper .input-holder .search-icon {
+    width:70px;
+    height:70px;
+    border:none;
+    border-radius:6px;
+    background: #FFF;
+    padding:0px;
+    outline:none;
+    position: relative;
+    z-index: 4;
+    float:right;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.search-wrapper.active .input-holder .search-icon {
+    width: 50px;
+    height:50px;
+    margin: 10px;
+    border-radius: 30px;
+    z-index:5;
+}
+.search-wrapper .input-holder .search-icon span {
+    width:22px;
+    height:22px;
+    display: inline-block;
+    vertical-align: middle;
+    position:relative;
+    transform: rotate(45deg);
+    transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+    z-index:5;
+}
+.search-wrapper.active .input-holder .search-icon span {
+    transform: rotate(-45deg);
+    z-index:5;
+}
+.search-wrapper .input-holder .search-icon span::before, .search-wrapper .input-holder .search-icon span::after {
+    position: absolute; 
+    content:'';
+    z-index:5;
+}
+.search-wrapper .input-holder .search-icon span::before {
+    width: 4px;
+    height: 11px;
+    left: 9px;
+    top: 18px;
+    border-radius: 2px;
+    background: rgb(12, 8, 24);
+}
+.search-wrapper .input-holder .search-icon span::after {
+    width: 14px;
+    height: 14px;
+    left: 0px;
+    top: 0px;
+    border-radius: 16px;
+    border: 4px solid rgb(12, 8, 24);
+}
+.search-wrapper .close {
+    position: absolute;
+    z-index: 1;
+    top:24px;
+    right:20px;
+    width:25px;
+    height:25px;
+    cursor: pointer;
+    transform: rotate(-180deg);
+    transition: all .3s cubic-bezier(0.285, -0.450, 0.935, 0.110);
+    transition-delay: 0.2s;
+    margin-right:68vw;
+}
+.search-wrapper.active .close {
+    right:-50px;
+    transform: rotate(45deg);
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.5s;
+}
+.search-wrapper .close::before, .search-wrapper .close::after {
+    position:absolute;
+    content:'';
+    background: white;
+    border-radius: 2px ;
+}
+.search-wrapper .close::before {
+    width: 5px;
+    height: 25px;
+    left: 10px;
+    top: 0px;
+}
+.search-wrapper .close::after {
+    width: 25px;
+    height: 5px;
+    left: 0px;
+    top: 10px;
+}
+.we{
+    width:365px;
+    height:490px;
+    background-color:#1e2129;
+    margin-left:5.7vw;
+    margin-top:-76vh;
+    border:2px solid white;
+    border-radius:20px;
+}
+.kol{
+    margin-top:16vh;
+    width:440px;
+    border-top:2px solid white;
+    margin-left:0.5vw;
+}
+.kol ion-icon{
+    font-size:1.6em;
+    margin-top:2vh;
+    text-align:left;
+    color:white;
+    margin-left:3vw;
+}
+.kk{
+    height: 360px;
+    width: 330px;
+    background-color:rgb(7, 7, 8);
+    margin-top:14vh;
+    margin-left:1vw;
+    border:2px solid white;
+    border-radius:20px;
+}
+.klk{
+    height: 180px;
+    width: 330px;
+    background-color:rgb(7, 7, 8);
+    margin-top:2vh;
+    margin-left:1vw;
+    border:2px solid white;
+    border-radius:20px;
+}
+.lk{
+    color:white;
+    font-size:1.3em;
+    font-weight:700;
+    margin:10px;
+    width: 290px;
+    border-bottom:1px solid white;
+}
+.topp{
+    margin-left:5.5vw;
+    margin-top:-98vh;
+    display:flex;
+    z-index:120;
+    font-weight: 1000;
+    text-decoration:none;
+    color:black;
+}
+.topp ul li{
+    list-style: none;
+    background-color:white;
+    margin:1vh;
+    border-radius:10px;
+    width:5.29vw;
+}
+.topp ul{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.topp ul li a{
+    text-decoration:none;
+
+}
+.tec{
+    text-decoration: none;
+    color:black;
+    font-weight:bold;
+}
